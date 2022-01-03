@@ -9,6 +9,41 @@
     <script src="./js/script.js"></script>
 </head>
 <body>
-    
+    <div class="flexbox-container">
+        <header>
+            <h1>Element War</h1>
+        </header>
+        <div class="flexbox-content">
+            <div class="character">
+                <img src="./image/fe-mage.png">  
+            </div>
+            <div class="interface">
+                <div class="attack-box">
+                    <p>Choose your attack type <span id="question-mark">?</span>: </p>
+                    <img id="type-advantage" src="../image/type-advantages.jpg" alt="Fire beats grass, grass beats water, and water beats fire!">
+                    <div class="attack-buttons">
+                        <button id="fire"></button>
+                        <button id="grass"></button>
+                        <button id="water"></button>
+                    </div>
+                </div>
+                <hr>
+                <div class="result-box">
+                    <div class="scoreboard">
+                        <p id="player">Player: Life: 5</p>
+                        <p id="computer">Lich King: Life: 5</p>
+                    </div>
+                    <hr>
+                    <p class="result">Yep, you're gonna die!</p>
+                </div>    
+            </div>
+            <div class="character">
+                <img src="./image/lich.png">  
+            </div>    
+        </div>
+        <div class="footer">
+            <p class="copyright">Copyright © The Odin Project 2021<br>Owner: <strong>Arcangis</strong></p>
+        </div>
+    </div>
 </body>
 </html>
