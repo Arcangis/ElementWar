@@ -197,22 +197,6 @@ button:hover {
 
 /* collapse margin is a feature of a block and don't work in flex */
 
-
-#question-mark {
-    display: inline-block;
-    height: auto;
-    width: 8.5%;
-    border-radius: 50%;
-    font-size: 25px;
-    border: 3px solid white;
-    background-color: rgb(92, 92, 92);
-}
-
-#question-mark:hover + #type-advantage {
-    display: inline-block;
-    background-color: blue;
-}
-
 .copyright {
     font-size: 20px;
     text-align: center;
