@@ -179,6 +179,25 @@ button:hover {
     padding: 30px;
 }
 
+.result-box .resultFinal {
+    font-size: 80px;
+}
+
+/* collapse margin is a feature of a block and don't work in flex */
+
+
+.result-box .result, .result-box .resultFinal {
+    margin: 40px;
+    padding: 0;
+}
+
+.result-box .result {
+    margin-bottom: 0;
+}
+
+/* collapse margin is a feature of a block and don't work in flex */
+
+
 #question-mark {
     display: inline-block;
     height: auto;
