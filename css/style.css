@@ -46,7 +46,7 @@ header {
 }
 
 .interface {
-    flex: 10 1 auto;
+    flex: 10 0 500px; /* fixed-width */
     display: flex;
     flex-direction: column;
     justify-content: center;
