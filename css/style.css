@@ -92,6 +92,10 @@ header {
     justify-content: stretch;
 }
 
+.scoreboard p {
+    white-space: pre-line; /* breaks line correctly with \n*/
+}
+
 #player, #computer {
     flex: 1 1 auto;
     padding: 30px;
@@ -164,7 +168,7 @@ button:hover {
 /* paragraphs */ 
 
 .attack-box p , .result-box p{
-    font-size: 40px;
+    font-size: 45px;
     text-align: center;
     color: white;
     margin: 0;
