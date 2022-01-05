@@ -13,8 +13,8 @@ let resultText;
 
 function getPlayerData(){
     getPlayerData = function(){}; /* run only once */
-    setTimeout(() =>  playerName = window.prompt("Enter your name: ","Senior Mage"), 0); 
-    setTimeout(() =>  computerName = window.prompt("Enter enemy's name: ","Lich King"), 0); 
+    playerName = window.prompt("Enter your name: ","Senior Mage"); 
+    computerName = window.prompt("Enter enemy's name: ","Lich King"); 
     if (playerName === null) 
         playerName = "Senior Mage";
     if (computerName === null) 
