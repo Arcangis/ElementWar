@@ -11,15 +11,10 @@ const attackColor = ["#d98935","#60a741","#26f3f7"];
 
 let resultText;
 
-window.onload=function(){
-    getPlayerData();
-    getButtonID();
-}
-
 function getPlayerData(){
     getPlayerData = function(){}; /* run only once */
-    playerName = window.prompt("Enter your name: ","Senior Mage")
-    computerName = window.prompt("Enter enemy's name: ","Lich King")
+    setTimeout(() =>  playerName = window.prompt("Enter your name: ","Senior Mage"), 0); 
+    setTimeout(() =>  computerName = window.prompt("Enter enemy's name: ","Lich King"), 0); 
     if (playerName === null) 
         playerName = "Senior Mage";
     if (computerName === null) 
@@ -99,4 +94,9 @@ function battleEnd(){
     }
     setTimeout(() => alert("The page will reset!"), 0); /* call the alert after everything is ran/updated */
     location.reload();
+}
+
+window.onload=function(){
+    getPlayerData();
+    getButtonID();
 }
