@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Element War</title>
-    <link rel="stylesheet" href="/ElementWar/css/style.css">
-    <script src="/ElementWar/js/script.js"></script>
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/script.js"></script>
 </head>
 <body>
     <div class="flexbox-container">
@@ -20,7 +20,6 @@
             <div class="interface">
                 <div class="attack-box">
                     <p>Choose your attack type: </p>
-                    <img id="type-advantage" src="./image/type-advantages.jpg" alt="Fire beats grass, grass beats water, and water beats fire!">
                     <div class="attack-buttons">
                         <button id="fire"></button>
                         <button id="grass"></button>
@@ -38,8 +37,27 @@
                     <p class="resultFinal">boss!</p>>
                 </div>    
             </div>
+            <div class="menu">
+                <div id="input-player-info">
+                    <label for="playerName">Player name: </label>
+                    <input type="text" id="playerName" defaultValue="Senior mage">
+                    <label for="computerName">Enemy name: </label>
+                    <input type="text" id="computerName" defaultValue="Lich King">
+                    <div class="playerGender">
+                        <input type="radio" id="female" value="Female">
+                        <label for="female">Female</label>
+                        <input type="radio" id="male" value="Male">
+                        <label for="female">Male</label>
+                    </div>
+                    <input type="submit" value="Submit">
+                </div>
+                <div id="try-again-container">
+                    <label for="try-again">You lost!</label>
+                    <button id="try-again">Try Again?</button>
+                </div> 
+            </div>
             <div class="character">
-                <img src="./image/lich.png">  
+                <img src="./image/enemy.png">  
             </div>    
         </div>
         <div class="footer">

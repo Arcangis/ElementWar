@@ -38,6 +38,50 @@ header {
 
 /* content */
 
+.menu {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    height:48%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-image: url("../image/border.png"); 
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-color: rgb(80, 80, 80);
+    z-index: 2; /* bring it to the front */
+    padding: 30px
+}
+
+#try-again-container {
+    display: none;
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+    font-size: 50px;
+}
+
+#input-player-info {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    font-size: 30px;
+    color: white;
+}
+
+.playerGender {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
 .flexbox-content {
     flex: 1 1 auto;
     display: flex;
@@ -151,18 +195,26 @@ button:hover {
     background-repeat: no-repeat;
 }
 
+#try-again-container button {
+    border-radius: 10px;
+    border: 5px solid black;
+    background-color: white;
+    height: 100%;
+    width: 100%;
+    font-size: 30px;
+    font-weight: bold;
+    padding: 15px;
+}
+
+#try-again-container button:hover {
+    filter: invert(1);
+}
+
+
 /* images */
 
 .character img {
     height: 450px;
-}
-
-#type-advantage {
-    display: none;
-    height: 300px;
-    width: 300px;
-    margin: 10px;
-    border: 5px double black;
 }
 
 /* paragraphs */ 
