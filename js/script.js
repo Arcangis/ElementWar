@@ -1,6 +1,9 @@
 let playerName;
 let computerName;
 
+const femaleMage = "./image/fe-mage.png";
+const maleMage = "./image/male-mage.png";
+
 let playerAttack;
 
 let playerRemainingLife = 5;
@@ -9,20 +12,43 @@ let computerRemainingLife = 5;
 const attackChoices = ["fire","grass","water"];
 const attackColor = ["#d98935","#60a741","#26f3f7"];
 
-let resultText;
-
 function getPlayerData(){
-    getPlayerData = function(){}; /* run only once */
-    playerName = window.prompt("Enter your name: ","Senior Mage"); 
-    computerName = window.prompt("Enter enemy's name: ","Lich King"); 
-    if (playerName === null) 
-        playerName = "Senior Mage";
-    if (computerName === null) 
-        computerName = "Lich King";
-    score();
+
+    document.querySelector(".menu").style.zIndex = "2";        
+    document.querySelector("#input-player-info").style.display = "flex";
+
+    const form  = document.getElementById('form-info');
+
+    form.addEventListener('submit', () => {
+        playerName = form.elements["playerName"].value;
+        computerName = form.elements["computerName"].value;
+        let gender = form.elements["gender"].value;
+
+        if (!playerName)
+            playerName = "Senior mage";
+        if (!computerName)
+            computerName = "Lich King";
+        
+        setMageImage(gender);      
+
+        document.querySelector(".menu").style.zIndex = "-1";        
+        document.querySelector("#input-player-info").style.display = "none";
+
+        score();
+
+    });
+}
+
+function setMageImage(gender){
+ 
+    if (gender == "0")
+        document.querySelector("#player-image img").src = femaleMage;
+    else
+        document.querySelector("#player-image img").src = maleMage;
 }
 
 function getButtonID() {
+
     const buttons = document.querySelectorAll('.attack-buttons');
 
     buttons.forEach((button) => {    
@@ -34,17 +60,23 @@ function getButtonID() {
 }
 
 function game(){
+
     roundFight(playerAttack, computerPlay());
+
     if (playerRemainingLife === 0 || computerRemainingLife === 0)
         battleEnd();
+
     score();
 }
 
 function computerPlay(){
+
     return Math.floor(Math.random()*3); //randomly choose a number between 0 and 2 
+
 }
 
 function score(){
+
     playerLifeBox = document.querySelector("#player");
     computerLifeBox = document.querySelector("#computer");
     
@@ -53,6 +85,7 @@ function score(){
 }
 
 function roundFight(playerAttack, computerAttack){
+
     if((playerAttack < computerAttack) && !(playerAttack === 0 && computerAttack === 2) || (playerAttack === 2 && computerAttack === 0)){
         computerRemainingLife-=1;
         resultFight(playerAttack, computerAttack, "won");
@@ -67,6 +100,7 @@ function roundFight(playerAttack, computerAttack){
 }
 
 function resultFight(playerAttack, computerAttack, result){
+
     resultText = `You used a <span id="playerAttackType">${attackChoices[playerAttack]}</span> attack against a <span id="computerAttackType">${attackChoices[computerAttack]}</span> attack.`;
     resultBox = document.querySelector(".result");
     resultBox.innerHTML = resultText;
@@ -83,20 +117,28 @@ function resultFight(playerAttack, computerAttack, result){
 }
 
 function battleEnd(){
+
+    document.querySelector(".menu").style.height = "22%";
+    document.querySelector(".menu").style.zIndex = "2";        
+    document.querySelector("#try-again-container").style.display = "flex";
+
+    resultBox.textContent
+
     if (playerRemainingLife === 0){
-        resultText = "You lost some battles and the war!";
-        resultBox.textContent = resultText;
-        battleResultBox.textContent = `LOSER`;
+        resultBox.textContent = "You lost some battles and the war!"; 
+        document.querySelector("#try-again-label").textContent = "You lost!";
+        battleResultBox.textContent = "LOSER!";
     } else {
-        resultText = "Even though you lost some battles, in the end you won the war!";
-        resultBox.textContent = resultText;
-        battleResultBox.textContent = `WINNER`;
+        resultBox.textContent = " Even though you lost some battles, in the end you won the war!";
+        document.querySelector("#try-again-label").textContent = "You Won!";
+        battleResultBox.textContent = "WINNER!";
     }
-    setTimeout(() => alert("The page will reset!"), 0); /* call the alert after everything is ran/updated */
-    location.reload();
+    setTimeout(() => document.querySelector("#try-again").addEventListener("click", () => location.reload()), 0); /* ran function after everything is ran/updated */
 }
 
-window.onload=function(){
+document.addEventListener('DOMContentLoaded', () => {
+
     getPlayerData();
     getButtonID();
-}
+
+}, false);
