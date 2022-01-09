@@ -18,8 +18,8 @@
             <h1>Element War</h1>
         </header>
         <div class="flexbox-content">
-            <div class="character">
-                <img src="./image/fe-mage.png">  
+            <div class="character" id="player-image">
+                <img src="./image/unknownMage.png">  
             </div>
             <div class="interface">
                 <div class="attack-box">
@@ -49,9 +49,9 @@
                     <label for="computerName">Enemy name: </label>
                     <input type="text" id="computerName" defaultValue="Lich King">
                     <div class="playerGender">
-                        <input type="radio" id="female" name="gender" value="Female">
+                        <input type="radio" id="female" name="gender" value="0">
                         <label for="female">Female</label>
-                        <input type="radio" id="male" name="gender" value="Male">
+                        <input type="radio" id="male" name="gender" value="1">
                         <label for="female">Male</label>
                     </div>
                     <input type="submit" value="Submit" id="submit-button">
