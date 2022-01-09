@@ -34,11 +34,14 @@ header {
     display: flex;
     justify-content: center;
     padding: 10px;
+    font-family: 'Notable', sans-serif;
+    font-size: 50px;
 }
 
 /* content */
 
 .menu {
+    font-family: 'Notable', sans-serif;
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -54,7 +57,7 @@ header {
     background-repeat: no-repeat;
     background-color: rgb(80, 80, 80);
     z-index: -1; /* bring it to the front */
-    padding: 30px
+    padding: 30px;
 }
 
 #try-again-container {
@@ -70,7 +73,7 @@ header {
     flex-direction: column;
     justify-content: center;
     gap: 20px;
-    font-size: 30px;
+    font-size: 28px;
     color: white;
 }
 
@@ -87,6 +90,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: stretch;
+    font-family: 'Notable', sans-serif;
 }
 
 .interface {
@@ -195,6 +199,12 @@ button:hover {
     background-repeat: no-repeat;
 }
 
+#submit-button {
+    font-weight: bold;
+    padding: 5px;
+    border-radius: 10px;
+}
+
 #try-again-container button {
     border-radius: 10px;
     border: 5px solid black;
@@ -220,7 +230,7 @@ button:hover {
 /* paragraphs */ 
 
 .attack-box p , .result-box p{
-    font-size: 45px;
+    font-size: 35px;
     text-align: center;
     color: white;
     margin: 0;
@@ -231,19 +241,19 @@ button:hover {
 }
 
 .result-box p {
-    font-size: 30px;
+    font-size: 20px;
     padding: 30px;
 }
 
 .result-box .resultFinal {
-    font-size: 80px;
+    font-size: 70px;
 }
 
 /* collapse margin is a feature of a block and don't work in flex */
 
 
 .result-box .result, .result-box .resultFinal {
-    margin: 40px;
+    margin: 35px;
     padding: 0;
 }
 

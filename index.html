@@ -7,6 +7,10 @@
     <title>Element War</title>
     <link rel="stylesheet" href="./css/style.css">
     <script src="./js/script.js"></script>
+    <!-- custom font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Notable&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="flexbox-container">
@@ -37,7 +41,8 @@
                     <p class="resultFinal">boss!</p>>
                 </div>    
             </div>
-            <div class="menu">
+            <div class="menu" onsubmit="return false">
+                <form id="form-info">
                 <div id="input-player-info">
                     <label for="playerName">Player name: </label>
                     <input type="text" id="playerName" defaultValue="Senior mage">
@@ -49,8 +54,9 @@
                         <input type="radio" id="male" name="gender" value="Male">
                         <label for="female">Male</label>
                     </div>
-                    <input type="submit" value="Submit">
+                    <input type="submit" value="Submit" id="submit-button">
                 </div>
+                </form>
                 <div id="try-again-container">
                     <label for="try-again">You lost!</label>
                     <button id="try-again">Try Again?</button>
