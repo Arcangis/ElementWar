@@ -14,8 +14,10 @@ const attackColor = ["#d98935","#60a741","#26f3f7"];
 
 function getPlayerData(){
 
+    // bring the menu and forms 
     document.querySelector(".menu").style.zIndex = "2";        
     document.querySelector("#input-player-info").style.display = "flex";
+    document.querySelector("#page-mask").style.display = "block";
 
     const form  = document.getElementById('form-info');
 
@@ -31,8 +33,10 @@ function getPlayerData(){
         
         setMageImage(gender);      
 
+        // hides the menu and forms 
         document.querySelector(".menu").style.zIndex = "-1";        
         document.querySelector("#input-player-info").style.display = "none";
+        document.querySelector("#page-mask").style.display = "none";
 
         score();
 
@@ -118,6 +122,8 @@ function resultFight(playerAttack, computerAttack, result){
 
 function battleEnd(){
 
+    // brings the menu and play again button 
+    document.querySelector("#page-mask").style.display = "block";
     document.querySelector(".menu").style.height = "22%";
     document.querySelector(".menu").style.zIndex = "2";        
     document.querySelector("#try-again-container").style.display = "flex";
