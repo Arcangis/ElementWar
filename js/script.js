@@ -139,7 +139,6 @@ function callTryAgainMenu(whichMenu){
 
     // brings the menu and play again button 
     document.querySelector("#page-mask").style.display = "block";
-    document.querySelector(".menu").style.height = "22%";
     document.querySelector(".menu").style.zIndex = "2";        
     document.querySelector("#try-again-container").style.display = "flex";
 
