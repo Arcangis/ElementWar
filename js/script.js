@@ -14,10 +14,7 @@ const attackColor = ["#d98935","#60a741","#26f3f7"];
 
 function getPlayerData(){
 
-    // bring the menu and forms 
-    document.querySelector(".menu").style.zIndex = "2";        
-    document.querySelector("#input-player-info").style.display = "flex";
-    document.querySelector("#page-mask").style.display = "block";
+    callFormsMenu(false);
 
     const form  = document.getElementById('form-info');
 
@@ -33,11 +30,8 @@ function getPlayerData(){
         
         setMageImage(gender);      
 
-        // hides the menu and forms 
-        document.querySelector(".menu").style.zIndex = "-1";        
-        document.querySelector("#input-player-info").style.display = "none";
-        document.querySelector("#page-mask").style.display = "none";
-
+        callFormsMenu(true);
+        
         score();
 
     });
@@ -51,20 +45,26 @@ function setMageImage(gender){
         document.querySelector("#player-image img").src = maleMage;
 }
 
-function getButtonID() {
+function buttonListenner(addListenner) {
 
     const buttons = document.querySelectorAll('.attack-buttons');
 
-    buttons.forEach((button) => {    
-        button.addEventListener('click', (event) => {
-            playerAttack = attackChoices.indexOf(event.target.id);
-            game();
+    if (addListenner){
+        buttons.forEach((button) => {    
+            button.addEventListener('click', executeRound);
         });
-    });
+    }
+    else {
+        buttons.forEach((button) => {    
+            button.removeEventListener('click', executeRound);
+        });
+    }
 }
 
-function game(){
+function executeRound(event){
 
+    playerAttack = attackChoices.indexOf(event.target.id);
+    
     roundFight(playerAttack, computerPlay());
 
     if (playerRemainingLife === 0 || computerRemainingLife === 0)
@@ -120,7 +120,22 @@ function resultFight(playerAttack, computerAttack, result){
     battleResultBox.textContent = `You ${result}!`;
 }
 
-function battleEnd(){
+function callFormsMenu(hideMenu){
+ 
+    if (hideMenu){
+        // hides the menu and forms 
+        document.querySelector(".menu").style.zIndex = "-1";        
+        document.querySelector("#input-player-info").style.display = "none";
+        document.querySelector("#page-mask").style.display = "none";
+    } else {
+        // bring the menu and forms 
+        document.querySelector(".menu").style.zIndex = "2";        
+        document.querySelector("#input-player-info").style.display = "flex";
+        document.querySelector("#page-mask").style.display = "block";        
+    }
+}
+
+function callTryAgainMenu(whichMenu){
 
     // brings the menu and play again button 
     document.querySelector("#page-mask").style.display = "block";
@@ -128,8 +143,11 @@ function battleEnd(){
     document.querySelector(".menu").style.zIndex = "2";        
     document.querySelector("#try-again-container").style.display = "flex";
 
-    resultBox.textContent
+    setTimeout(() => document.querySelector("#try-again").addEventListener("click", () => location.reload()), 0); /* ran function after everything is ran/updated */
+}
 
+function battleEnd(){
+    
     if (playerRemainingLife === 0){
         resultBox.textContent = "You lost some battles and the war!"; 
         document.querySelector("#try-again-label").textContent = "You lost!";
@@ -139,12 +157,14 @@ function battleEnd(){
         document.querySelector("#try-again-label").textContent = "You Won!";
         battleResultBox.textContent = "WINNER!";
     }
-    setTimeout(() => document.querySelector("#try-again").addEventListener("click", () => location.reload()), 0); /* ran function after everything is ran/updated */
+    buttonListenner(false);
+    setTimeout(() => callTryAgainMenu(), 2000); // call try again menu after 2s
+    
 }
 
 document.addEventListener('DOMContentLoaded', () => {
 
     getPlayerData();
-    getButtonID();
+    buttonListenner(true);
 
 }, false);
