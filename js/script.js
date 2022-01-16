@@ -125,11 +125,13 @@ function callFormsMenu(hideMenu){
     if (hideMenu){
         // hides the menu and forms 
         document.querySelector(".menu").style.zIndex = "-1";        
+        document.querySelector(".menu").style.display = "none";
         document.querySelector("#input-player-info").style.display = "none";
         document.querySelector("#page-mask").style.display = "none";
     } else {
         // bring the menu and forms 
         document.querySelector(".menu").style.zIndex = "2";        
+        document.querySelector(".menu").style.display = "flex";
         document.querySelector("#input-player-info").style.display = "flex";
         document.querySelector("#page-mask").style.display = "block";        
     }
@@ -139,7 +141,8 @@ function callTryAgainMenu(whichMenu){
 
     // brings the menu and play again button 
     document.querySelector("#page-mask").style.display = "block";
-    document.querySelector(".menu").style.zIndex = "2";        
+    document.querySelector(".menu").style.zIndex = "2";
+    document.querySelector(".menu").style.display = "flex";        
     document.querySelector("#try-again-container").style.display = "flex";
 
     setTimeout(() => document.querySelector("#try-again").addEventListener("click", () => location.reload()), 0); /* ran function after everything is ran/updated */

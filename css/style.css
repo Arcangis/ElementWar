@@ -17,7 +17,6 @@ body {
     background-color: black;
     height: 100vh;
     width: 100vw;
-    border: 10px solid transparent;
 }
 
 #page-mask {
@@ -236,9 +235,7 @@ button:hover {
 /* images */
 
 .character img {
-    max-height: 450px;
-    display: inline-block;
-    overflow: hidden;
+    max-width: 70%;
 }
 
 /* paragraphs */ 
